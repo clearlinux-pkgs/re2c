@@ -4,7 +4,7 @@
 #
 Name     : re2c
 Version  : 1.0.3
-Release  : 2
+Release  : 3
 URL      : https://github.com/skvadrik/re2c/releases/download/1.0.3/re2c-1.0.3.tar.gz
 Source0  : https://github.com/skvadrik/re2c/releases/download/1.0.3/re2c-1.0.3.tar.gz
 Summary  : No detailed summary available
