@@ -4,7 +4,7 @@
 #
 Name     : re2c
 Version  : 1.1.1
-Release  : 5
+Release  : 6
 URL      : https://github.com/skvadrik/re2c/releases/download/1.1.1/re2c-1.1.1.tar.gz
 Source0  : https://github.com/skvadrik/re2c/releases/download/1.1.1/re2c-1.1.1.tar.gz
 Summary  : No detailed summary available
