@@ -4,7 +4,7 @@
 #
 Name     : re2c
 Version  : 1.3
-Release  : 8
+Release  : 9
 URL      : https://github.com/skvadrik/re2c/releases/download/1.3/re2c-1.3.tar.xz
 Source0  : https://github.com/skvadrik/re2c/releases/download/1.3/re2c-1.3.tar.xz
 Summary  : No detailed summary available
@@ -14,6 +14,7 @@ Requires: re2c-bin = %{version}-%{release}
 Requires: re2c-data = %{version}-%{release}
 Requires: re2c-man = %{version}-%{release}
 BuildRequires : bison
+Patch1: CVE-2020-11958.patch
 
 %description
 DESCRIPTION
@@ -48,21 +49,22 @@ man components for the re2c package.
 %prep
 %setup -q -n re2c-1.3
 cd %{_builddir}/re2c-1.3
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587481869
+export SOURCE_DATE_EPOCH=1587482188
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -74,7 +76,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1587481869
+export SOURCE_DATE_EPOCH=1587482188
 rm -rf %{buildroot}
 %make_install
 
