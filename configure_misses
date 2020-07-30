@@ -1,1 +1,2 @@
 Configure miss: C++ compiler flag -Weverything
+Configure miss: whether a statically linked program can dlopen itself
