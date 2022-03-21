@@ -4,7 +4,7 @@
 #
 Name     : re2c
 Version  : 2.2
-Release  : 15
+Release  : 16
 URL      : https://github.com/skvadrik/re2c/releases/download/2.2/re2c-2.2.tar.xz
 Source0  : https://github.com/skvadrik/re2c/releases/download/2.2/re2c-2.2.tar.xz
 Summary  : No detailed summary available
@@ -16,7 +16,6 @@ Requires: re2c-license = %{version}-%{release}
 Requires: re2c-man = %{version}-%{release}
 BuildRequires : bison
 BuildRequires : buildreq-cmake
-BuildRequires : buildreq-golang
 
 %description
 ReTdfa is a Java library and benchmark for regular expression parsing
@@ -67,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1627941105
+export SOURCE_DATE_EPOCH=1647890534
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -87,7 +86,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1627941105
+export SOURCE_DATE_EPOCH=1647890534
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/re2c
 cp %{_builddir}/re2c-2.2/LICENSE %{buildroot}/usr/share/package-licenses/re2c/4bc5a5deebfea79e0d2d5b428a6bfd9a6d239959
