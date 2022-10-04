@@ -1,2 +1,2 @@
 Configure miss: C++ compiler flag -Weverything
-Configure miss: whether a statically linked program can dlopen itself
+Configure miss: g++ option to enable C++11 features

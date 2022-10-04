@@ -4,7 +4,7 @@
 #
 Name     : re2c
 Version  : 3.0
-Release  : 17
+Release  : 18
 URL      : https://github.com/skvadrik/re2c/releases/download/3.0/re2c-3.0.tar.xz
 Source0  : https://github.com/skvadrik/re2c/releases/download/3.0/re2c-3.0.tar.xz
 Summary  : No detailed summary available
@@ -65,15 +65,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1650486587
+export SOURCE_DATE_EPOCH=1664912401
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -85,10 +85,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1650486587
+export SOURCE_DATE_EPOCH=1664912401
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/re2c
-cp %{_builddir}/re2c-3.0/LICENSE %{buildroot}/usr/share/package-licenses/re2c/4bc5a5deebfea79e0d2d5b428a6bfd9a6d239959
+cp %{_builddir}/re2c-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/re2c/4bc5a5deebfea79e0d2d5b428a6bfd9a6d239959 || :
 %make_install
 
 %files
