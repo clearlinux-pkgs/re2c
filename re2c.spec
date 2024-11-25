@@ -6,10 +6,10 @@
 # autospec commit: 5424026
 #
 Name     : re2c
-Version  : 4.0
-Release  : 21
-URL      : https://github.com/skvadrik/re2c/releases/download/4.0/re2c-4.0.tar.lz
-Source0  : https://github.com/skvadrik/re2c/releases/download/4.0/re2c-4.0.tar.lz
+Version  : 4.0.1
+Release  : 22
+URL      : https://github.com/skvadrik/re2c/releases/download/4.0.1/re2c-4.0.1.tar.lz
+Source0  : https://github.com/skvadrik/re2c/releases/download/4.0.1/re2c-4.0.1.tar.lz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Public-Domain
@@ -65,15 +65,15 @@ man components for the re2c package.
 
 
 %prep
-%setup -q -n re2c-4.0
-cd %{_builddir}/re2c-4.0
+%setup -q -n re2c-4.0.1
+cd %{_builddir}/re2c-4.0.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1732120302
+export SOURCE_DATE_EPOCH=1732551220
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -114,7 +114,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1732120302
+export SOURCE_DATE_EPOCH=1732551220
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/re2c
 cp %{_builddir}/re2c-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/re2c/4bc5a5deebfea79e0d2d5b428a6bfd9a6d239959 || :
