@@ -6,10 +6,10 @@
 # autospec commit: 5424026
 #
 Name     : re2c
-Version  : 4.0.1
-Release  : 22
-URL      : https://github.com/skvadrik/re2c/releases/download/4.0.1/re2c-4.0.1.tar.lz
-Source0  : https://github.com/skvadrik/re2c/releases/download/4.0.1/re2c-4.0.1.tar.lz
+Version  : 4.0.2
+Release  : 23
+URL      : https://github.com/skvadrik/re2c/releases/download/4.0.2/re2c-4.0.2.tar.xz
+Source0  : https://github.com/skvadrik/re2c/releases/download/4.0.2/re2c-4.0.2.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Public-Domain
@@ -25,10 +25,9 @@ BuildRequires : file
 %define debug_package %{nil}
 
 %description
-ReTdfa is a Java library and benchmark for regular expression parsing
-and submatch extraction. It contains a family of algorithms based on
-TNFA and TDFA. It also contains a benchmark for various algorithms,
-including libre2c.
+The following benchmarks have been taken from the Kleenex repository
+(https://github.com/diku-kmc/kleenexlang) and are licensed under the MIT
+license (together with the data generators):
 
 %package bin
 Summary: bin components for the re2c package.
@@ -65,15 +64,15 @@ man components for the re2c package.
 
 
 %prep
-%setup -q -n re2c-4.0.1
-cd %{_builddir}/re2c-4.0.1
+%setup -q -n re2c-4.0.2
+cd %{_builddir}/re2c-4.0.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1732551220
+export SOURCE_DATE_EPOCH=1735106510
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -114,7 +113,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1732551220
+export SOURCE_DATE_EPOCH=1735106510
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/re2c
 cp %{_builddir}/re2c-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/re2c/4bc5a5deebfea79e0d2d5b428a6bfd9a6d239959 || :
@@ -131,6 +130,7 @@ GOAMD64=v2
 /usr/bin/re2d
 /usr/bin/re2go
 /usr/bin/re2hs
+/usr/bin/re2java
 /usr/bin/re2js
 /usr/bin/re2ocaml
 /usr/bin/re2py
@@ -163,6 +163,7 @@ GOAMD64=v2
 /usr/share/man/man1/re2d.1
 /usr/share/man/man1/re2go.1
 /usr/share/man/man1/re2hs.1
+/usr/share/man/man1/re2java.1
 /usr/share/man/man1/re2js.1
 /usr/share/man/man1/re2ocaml.1
 /usr/share/man/man1/re2py.1
